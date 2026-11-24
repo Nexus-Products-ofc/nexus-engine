@@ -4,216 +4,133 @@
   <base href="/nexus-engine/" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Nexus Engine — Python Game Engine</title>
-  <meta name="description" content="Nexus Engine: engine Python open-source estilo Unity. Tutorial, API, build. Made in Nexus." />
+  <title>Nexus Engine 1.0 TURBO</title>
   <link rel="icon" href="assets/logo.svg" />
   <link rel="stylesheet" href="styles.css" />
   <style>
-    .doc-block { max-width: 900px; margin: 0 auto; padding: 8px 20px 24px; }
-    .doc-block h2 { margin-top: 48px; border-bottom: 1px solid var(--line); padding-bottom: 8px; text-align: left; }
-    .doc-block h3 { margin-top: 28px; color: #e8d5ff; text-align: left; }
-    .doc-block p, .doc-block li { color: var(--muted); line-height: 1.65; text-align: left; }
-    .doc-block a { color: var(--accent); }
-    .doc-block pre { background: #0a0412; border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; overflow: auto; color: #d7c4ff; font-size: 0.88rem; text-align: left; }
-    .doc-block table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.92rem; }
-    .doc-block th, .doc-block td { border: 1px solid var(--line); padding: 8px 10px; text-align: left; }
-    .doc-block th { background: rgba(181,107,255,.12); color: #ecd9ff; }
-    .callout { border-left: 3px solid var(--accent); background: rgba(181,107,255,.08); padding: 12px 16px; border-radius: 0 10px 10px 0; margin: 16px 0; color: var(--muted); text-align: left; }
-    .toc { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 18px 22px; margin: 24px auto; max-width: 900px; text-align: left; }
-    .toc ol { margin: 8px 0 0; padding-left: 22px; }
-    .toc a { color: var(--accent); text-decoration: none; }
-    html { scroll-behavior: smooth; }
+    .doc-block{max-width:920px;margin:0 auto;padding:8px 20px 24px}
+    .doc-block h2{margin-top:36px;border-bottom:1px solid var(--line);padding-bottom:8px;text-align:left}
+    .doc-block p,.doc-block li{color:var(--muted);line-height:1.65;text-align:left}
+    .doc-block a{color:var(--accent)}
+    .doc-block pre{background:#0a0412;border:1px solid var(--line);border-radius:12px;padding:14px;overflow:auto;color:#d7c4ff;font-size:.88rem}
+    .dl-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;max-width:920px;margin:0 auto}
+    .dl-card{background:linear-gradient(180deg,rgba(181,107,255,.12),rgba(255,255,255,.03));border:1px solid var(--line);border-radius:16px;padding:18px;text-align:left}
+    .dl-card h3{margin:0 0 8px;color:#f0e6ff}
+    .dl-card p{margin:0 0 14px;color:var(--muted);font-size:.92rem}
+    .btn.danger{background:#3a1520;color:#ffb4c0;border:1px solid rgba(255,120,140,.35)}
+    .btn.ok{background:#14301f;color:#b6f5c8;border:1px solid rgba(100,220,140,.3)}
+    .forum-list{list-style:none;padding:0;margin:0 auto;max-width:920px}
+    .forum-list li{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:10px 0;text-align:left}
+    .forum-list a{color:#e9d7ff;font-weight:600;text-decoration:none}
+    .forum-list span{display:block;color:var(--muted);font-size:.9rem;margin-top:4px}
+    .badge-turbo{display:inline-block;margin-left:8px;padding:2px 10px;border-radius:999px;background:linear-gradient(135deg,#b56bff,#7c3aed);font-size:.75rem;font-weight:800}
+    html{scroll-behavior:smooth}
   </style>
 </head>
 <body>
   <div class="bg-glow"></div>
-  <header class="nav">
-    <div class="nav-inner">
-      <a class="brand" href="#top">
-        <img src="assets/logo.svg" alt="Nexus" width="36" height="36" />
-        <span>Nexus Engine</span>
-      </a>
-      <nav class="links">
-        <a href="#features">Features</a>
-        <a href="#tutorial">Tutorial</a>
-        <a href="#api">API</a>
-        <a href="#build">Build</a>
-        <a href="#howto">Como fizemos</a>
-        <a href="https://github.com/heitorhanzelgontijo-svg/nexus-engine" target="_blank" rel="noopener">GitHub</a>
-      </nav>
-      <div class="lang-wrap">
-        <label for="lang" data-i18n="lang_label">Idioma</label>
-        <select id="lang" aria-label="Language"></select>
-      </div>
-    </div>
-  </header>
+  <header class="nav"><div class="nav-inner">
+    <a class="brand" href="#top"><img src="assets/logo.svg" width="36" height="36" alt="Nexus"/><span>Nexus <span class="badge-turbo">1.0 TURBO</span></span></a>
+    <nav class="links">
+      <a href="#download">Download</a>
+      <a href="#interface">Interface</a>
+      <a href="#media">Mídia</a>
+      <a href="#forum">Fórum</a>
+      <a href="#report">Reportar</a>
+      <a href="https://github.com/heitorhanzelgontijo-svg/nexus-engine" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+  </div></header>
 
   <main id="top">
     <section class="hero">
-      <img class="hero-logo" src="assets/logo.svg" alt="Nexus" width="120" height="120" />
-      <h1 data-i18n="hero_title">Nexus Engine</h1>
-      <p class="tagline" data-i18n="hero_tagline">A engine de jogos Python open-source feita para indies</p>
-      <p class="sub" data-i18n="hero_sub">Arquitetura inspirada na Unity. ECS, Física2D, Partículas, Tilemap, UI — Python puro.</p>
+      <img class="hero-logo" src="assets/logo.svg" width="120" height="120" alt="Nexus"/>
+      <h1>Nexus Engine <span class="badge-turbo">1.0 TURBO</span></h1>
+      <p class="tagline">Interface estilo Unity · som · imagem · malha · animação · VFX</p>
+      <p class="sub">Editor visual, Turbo Mode, download ZIP/MSI, fórum e reportar bugs. MIT · Made in Nexus</p>
       <div class="cta">
-        <a class="btn primary" href="https://github.com/heitorhanzelgontijo-svg/nexus-engine">GitHub</a>
-        <a class="btn ghost" href="#tutorial">Tutorial</a>
+        <a class="btn primary" href="#download">Baixar</a>
+        <a class="btn ghost" href="#forum">Fórum</a>
         <a class="btn star" href="https://github.com/heitorhanzelgontijo-svg/nexus-engine">Star</a>
       </div>
-      <div class="badges">
-        <span>Python 3.9+</span><span>MIT</span><span>2D + 3D</span><span>Página única</span>
-      </div>
     </section>
 
-    <section id="features" class="section">
-      <h2 data-i18n="feat_title">Tudo para lançar jogos 2D e 3D</h2>
-      <div class="grid">
-        <article><h3 data-i18n="feat_ecs">ECS</h3><p data-i18n="feat_ecs_d">Entidades, Componentes, Sistemas.</p></article>
-        <article><h3 data-i18n="feat_phys">Física2D</h3><p data-i18n="feat_phys_d">Rigidbody, colliders, raycast.</p></article>
-        <article><h3 data-i18n="feat_part">Partículas</h3><p data-i18n="feat_part_d">Fogo, explosões, efeitos.</p></article>
-        <article><h3 data-i18n="feat_tile">Tilemap</h3><p data-i18n="feat_tile_d">Mundos em grid.</p></article>
-        <article><h3 data-i18n="feat_ui">UI + Editor</h3><p data-i18n="feat_ui_d">Canvas e Engine Mode estilo Unity.</p></article>
-        <article><h3 data-i18n="feat_multi">Multi-backend</h3><p data-i18n="feat_multi_d">Pygame, Ursina, Panda3D, Taichi.</p></article>
+    <section id="download" class="section">
+      <h2>Download</h2>
+      <div class="dl-grid">
+        <div class="dl-card">
+          <h3>ZIP Windows</h3>
+          <p>NexusEngine-1.0.0-win64.zip — portátil</p>
+          <a class="btn primary" href="https://github.com/heitorhanzelgontijo-svg/nexus-engine/releases/latest">Baixar ZIP</a>
+        </div>
+        <div class="dl-card">
+          <h3>MSI</h3>
+          <p>python build_msi.py no Windows → dist/*.msi</p>
+          <a class="btn ok" href="https://github.com/heitorhanzelgontijo-svg/nexus-engine/releases/latest">Baixar MSI</a>
+        </div>
+        <div class="dl-card">
+          <h3>Código</h3>
+          <p>Repositório completo</p>
+          <a class="btn ghost" href="https://github.com/heitorhanzelgontijo-svg/nexus-engine/archive/refs/heads/main.zip">Source ZIP</a>
+        </div>
       </div>
-    </section>
-
-    <nav class="toc">
-      <strong style="color:var(--text)">Nesta página</strong>
-      <ol>
-        <li><a href="#tutorial">Como começar</a></li>
-        <li><a href="#api">Funções principais (API)</a></li>
-        <li><a href="#build">Build multi-sistema</a></li>
-        <li><a href="#editor">Engine Mode</a></li>
-        <li><a href="#howto">Como construímos a Nexus</a></li>
-        <li><a href="#compare">Nexus vs Unity vs Godot</a></li>
-      </ol>
-    </nav>
-
-    <section id="tutorial" class="section alt">
       <div class="doc-block">
-        <h2>1. Como começar</h2>
-        <pre><code>git clone https://github.com/heitorhanzelgontijo-svg/nexus-engine.git
-cd nexus-engine
-pip install pygame numpy
-python main.py
+        <pre><code>pip install pygame numpy
 python main.py --editor
-pip install ursina && python main.py --3d
-python build.py</code></pre>
-        <h3>Exemplo mínimo</h3>
-        <pre><code>from nexus_engine import Application, World, Transform, SpriteRenderer, Camera, Debug
-
-world = World("Jogo")
-cam = world.create_entity("Cam")
-cam.add_component(Transform(0, 0))
-cam.add_component(Camera())
-player = world.create_entity("Player")
-player.add_component(Transform(100, 100))
-player.add_component(SpriteRenderer(color=(100, 200, 255), width=32, height=32))
-Debug.log("Pronto")
-Application(title="Meu Jogo", backend="pygame").run(world)</code></pre>
+python build_msi.py</code></pre>
       </div>
     </section>
 
-    <section id="api" class="section">
+    <section id="interface" class="section alt">
       <div class="doc-block">
-        <h2>2. Funções principais (API)</h2>
-        <h3>Application / Cenas</h3>
-        <pre><code>from nexus_engine import Application, SceneManager, ProjectSettings, NexusEngine
-settings = ProjectSettings.instance()
-world = SceneManager.create_scene("Level1")
-Application(title="MeuJogo", backend="pygame", show_splash=True).run(world)</code></pre>
-        <h3>ECS / Física / Input</h3>
-        <pre><code>from nexus_engine import Component, Transform, SpriteRenderer, Rigidbody2D, BoxCollider2D, Vector2, Input, Audio, Debug
-
-class Mover(Component):
-    def update(self, dt):
-        self.transform.x += 40 * dt
-
-e = world.create_entity("Player")
-e.add_component(Transform(100, 100))
-e.add_component(SpriteRenderer(color=(120, 180, 255), width=32, height=32))
-e.add_component(Rigidbody2D(mass=1.0))
-e.add_component(BoxCollider2D(size=Vector2(32, 48)))
-e.add_component(Mover())
-if Input.get_key_down("space"):
-    Audio.play_sfx("jump.wav")
-Debug.show_fps = True</code></pre>
-        <h3>3D / Prefab / Save</h3>
-        <pre><code>from nexus_engine import MeshRenderer, Camera3D, Prefab, SceneSerializer, Resources
-cube.add_component(MeshRenderer(model="cube", color=(0.6, 0.4, 1, 1)))
-cam.add_component(Camera3D(fov=60))
-SceneSerializer.save(world, "saves/level.json")
-Resources.load("config/game.json")</code></pre>
-        <p>API completa: <a href="https://github.com/heitorhanzelgontijo-svg/nexus-engine/blob/main/docs/API.md">docs/API.md</a></p>
+        <h2>Interface estilo Unity</h2>
+        <p>Engine Mode: Hierarchy · Scene · Inspector · Console · Play</p>
+        <pre><code>python main.py --editor
+from nexus_engine import Turbo
+Turbo.set("turbo")  # quality | balanced | turbo | ultra</code></pre>
       </div>
     </section>
 
-    <section id="build" class="section alt">
+    <section id="media" class="section">
       <div class="doc-block">
-        <h2>3. Build multi-sistema</h2>
-        <pre><code>python build.py
-python build.py windows --name MeuJogo
-python build.py linux --name MeuJogo
-python build.py macos --name MeuJogo
-python build.py html
-python build.py android</code></pre>
-        <table>
-          <tr><th>Alvo</th><th>Saída</th></tr>
-          <tr><td>Windows</td><td>dist/MeuJogo.exe</td></tr>
-          <tr><td>Linux</td><td>dist/MeuJogo</td></tr>
-          <tr><td>macOS</td><td>dist/ app ou binário</td></tr>
-          <tr><td>HTML5</td><td>dist/html/</td></tr>
-          <tr><td>Android</td><td>dist/android/</td></tr>
-        </table>
+        <h2>Música, som, imagem, malha, VFX</h2>
+        <pre><code>from nexus_engine import Music, Audio, Image, MeshAsset, VFX
+Music.play("assets/music/theme.ogg", loop=True)
+Audio.play_sfx("jump.wav")
+img = Image.load("hero.png")
+mesh = MeshAsset.cube()
+VFX.explosion(world, 200, 300)</code></pre>
       </div>
     </section>
 
-    <section id="editor" class="section">
-      <div class="doc-block">
-        <h2>4. Engine Mode</h2>
-        <pre><code>python main.py --editor</code></pre>
-        <p>Hierarchy · Scene · Inspector · Console · Play/Pause · N novo · Del remover · F1 FPS</p>
-      </div>
+    <section id="forum" class="section alt">
+      <h2>Fórum de games e ideias</h2>
+      <ul class="forum-list">
+        <li><a href="https://github.com/heitorhanzelgontijo-svg/nexus-engine/discussions" target="_blank" rel="noopener">Discussions</a><span>Games, ideias, tutoriais</span></li>
+        <li><a href="https://github.com/heitorhanzelgontijo-svg/nexus-engine/discussions/new/choose" target="_blank" rel="noopener">Nova discussão</a><span>Comece um tópico</span></li>
+      </ul>
     </section>
 
-    <section id="howto" class="section alt">
-      <div class="doc-block">
-        <h2>5. Como construímos a Nexus</h2>
-        <ol>
-          <li><strong>Núcleo</strong> — NexusEngine, Application, Time, EventBus</li>
-          <li><strong>ECS</strong> — World, Entity, Component, System</li>
-          <li><strong>Gameplay</strong> — Physics2D, Particles, Tilemap, UI, Audio</li>
-          <li><strong>Unity-like</strong> — Prefabs, Pool, Coroutines, SceneManager, Resources</li>
-          <li><strong>Multi-backend</strong> — Pygame, Ursina, Panda3D, Taichi</li>
-          <li><strong>DX</strong> — splash Made in Nexus, Debug, Engine Mode</li>
-          <li><strong>Build + site</strong> — PyInstaller multi-OS, GitHub Pages</li>
-        </ol>
-      </div>
-    </section>
-
-    <section id="compare" class="section">
-      <div class="doc-block">
-        <h2>6. Nexus vs Unity vs Godot</h2>
-        <table>
-          <tr><th></th><th>Nexus</th><th>Unity</th><th>Godot</th></tr>
-          <tr><td>Linguagem</td><td>Python</td><td>C#</td><td>GDScript / C#</td></tr>
-          <tr><td>Licença</td><td>MIT</td><td>Proprietária*</td><td>MIT</td></tr>
-          <tr><td>Editor</td><td>Engine Mode</td><td>Completo</td><td>Completo</td></tr>
-          <tr><td>Ideal</td><td>Indies Python</td><td>Mid/AAA</td><td>Indies gerais</td></tr>
-        </table>
-      </div>
-    </section>
-
-    <section class="section alt">
-      <div class="cta">
-        <a class="btn primary" href="https://github.com/heitorhanzelgontijo-svg/nexus-engine">GitHub</a>
-        <a class="btn ghost" href="#top">Topo</a>
+    <section id="report" class="section">
+      <h2>Reportar bug ou melhoria</h2>
+      <div class="dl-grid">
+        <div class="dl-card">
+          <h3>Bug</h3>
+          <a class="btn danger" href="https://github.com/heitorhanzelgontijo-svg/nexus-engine/issues/new?labels=bug&title=%5BBUG%5D%20" target="_blank" rel="noopener">Reportar bug</a>
+        </div>
+        <div class="dl-card">
+          <h3>Melhoria</h3>
+          <a class="btn ok" href="https://github.com/heitorhanzelgontijo-svg/nexus-engine/issues/new?labels=enhancement&title=%5BENHANCEMENT%5D%20" target="_blank" rel="noopener">Sugerir melhoria</a>
+        </div>
+        <div class="dl-card">
+          <h3>GitHub</h3>
+          <a class="btn ghost" href="https://github.com/heitorhanzelgontijo-svg/nexus-engine" target="_blank" rel="noopener">Repositório</a>
+        </div>
       </div>
     </section>
   </main>
-
   <footer>
-    <img src="assets/logo.svg" alt="" width="28" height="28" />
-    <p data-i18n="footer">Nexus Engine — MIT — Made in Nexus</p>
+    <img src="assets/logo.svg" width="28" height="28" alt=""/>
+    <p>Nexus Engine 1.0 TURBO — MIT — Made in Nexus</p>
   </footer>
   <script src="app.js"></script>
 </body>
