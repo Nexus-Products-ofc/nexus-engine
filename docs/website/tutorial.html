@@ -1,112 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <base href="/nexus-engine/" />
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Tutorial — Nexus Engine</title>
-  <link rel="icon" href="assets/logo.svg" />
-  <link rel="stylesheet" href="styles.css" />
-  <style>
-    .doc { max-width: 900px; margin: 0 auto; padding: 40px 20px 80px; }
-    .doc h1 { font-size: 2.2rem; }
-    .doc h2 { margin-top: 40px; border-bottom: 1px solid var(--line); padding-bottom: 8px; }
-    .doc p, .doc li { color: var(--muted); line-height: 1.65; }
-    .doc a { color: var(--accent); }
-    .doc pre { background: #0a0412; border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; overflow: auto; color: #d7c4ff; font-size: 0.88rem; }
-    .doc table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.92rem; }
-    .doc th, .doc td { border: 1px solid var(--line); padding: 8px 10px; text-align: left; }
-    .doc th { background: rgba(181,107,255,.12); color: #ecd9ff; }
-    .callout { border-left: 3px solid var(--accent); background: rgba(181,107,255,.08); padding: 12px 16px; border-radius: 0 10px 10px 0; margin: 16px 0; color: var(--muted); }
-  </style>
+  <base href="/nexus-engine/" />
+  <meta http-equiv="refresh" content="0; url=./#tutorial" />
+  <title>Redirect — Nexus Engine</title>
+  <script>location.replace('./#tutorial');</script>
 </head>
 <body>
-  <div class="bg-glow"></div>
-  <header class="nav">
-    <div class="nav-inner">
-      <a class="brand" href="./">
-        <img src="assets/logo.svg" alt="Nexus" width="36" height="36" />
-        <span>Nexus Engine</span>
-      </a>
-      <nav class="links">
-        <a href="./">Home</a>
-        <a href="tutorial.html">Tutorial</a>
-        <a href="https://github.com/heitorhanzelgontijo-svg/nexus-engine" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://github.com/heitorhanzelgontijo-svg/nexus-engine/blob/main/docs/API.md" target="_blank" rel="noopener">API</a>
-      </nav>
-    </div>
-  </header>
-  <main class="doc">
-    <h1>Tutorial completo — Nexus Engine</h1>
-    <p>Instalação, funções principais, build multiplataforma e como a engine foi construída.</p>
-
-    <h2>1. Instalação</h2>
-    <pre><code>git clone https://github.com/heitorhanzelgontijo-svg/nexus-engine.git
-cd nexus-engine
-pip install pygame numpy
-python main.py
-python main.py --editor
-pip install ursina &amp;&amp; python main.py --3d</code></pre>
-
-    <h2>2. Arquitetura</h2>
-    <table>
-      <tr><th>Unity</th><th>Nexus</th></tr>
-      <tr><td>GameObject</td><td>Entity</td></tr>
-      <tr><td>MonoBehaviour</td><td>Component</td></tr>
-      <tr><td>Scene</td><td>World + SceneManager</td></tr>
-      <tr><td>Debug.Log</td><td>Debug.log</td></tr>
-    </table>
-
-    <h2>3. Exemplo mínimo</h2>
-    <pre><code>from nexus_engine import Application, World, Transform, SpriteRenderer, Camera, Debug
-
-world = World("Game")
-cam = world.create_entity("Cam")
-cam.add_component(Transform(0, 0))
-cam.add_component(Camera())
-p = world.create_entity("Player")
-p.add_component(Transform(100, 100))
-p.add_component(SpriteRenderer(color=(100, 200, 255), width=32, height=32))
-Debug.log("ok")
-Application(title="Meu Jogo", backend="pygame").run(world)</code></pre>
-
-    <h2>4. Build multi-sistema</h2>
-    <pre><code>python build.py
-python build.py windows --name MeuJogo
-python build.py linux --name MeuJogo
-python build.py macos --name MeuJogo
-python build.py html
-python build.py android</code></pre>
-    <table>
-      <tr><th>Alvo</th><th>Saída</th></tr>
-      <tr><td>Windows</td><td>dist/MeuJogo.exe</td></tr>
-      <tr><td>Linux</td><td>dist/MeuJogo</td></tr>
-      <tr><td>macOS</td><td>dist/ app ou binário</td></tr>
-      <tr><td>HTML5</td><td>dist/html/</td></tr>
-      <tr><td>Android</td><td>dist/android/</td></tr>
-    </table>
-
-    <h2>5. Engine Mode</h2>
-    <pre><code>python main.py --editor
-python -m nexus_engine.editor</code></pre>
-    <p>Hierarchy · Scene · Inspector · Console · Play/Pause · tecla N cria objeto · Del remove.</p>
-
-    <h2>6. Como construímos a Nexus</h2>
-    <ol>
-      <li><strong>Núcleo</strong> — NexusEngine, Application, Time, EventBus</li>
-      <li><strong>ECS</strong> — World, Entity, Component, System</li>
-      <li><strong>Gameplay</strong> — Physics2D, Particles, Tilemap, UI, Audio</li>
-      <li><strong>Unity-like</strong> — Prefabs, Pool, Coroutines, SceneManager, Resources</li>
-      <li><strong>Multi-backend</strong> — Pygame, Ursina, Panda3D, Taichi</li>
-      <li><strong>DX</strong> — Splash Made in Nexus, Debug, Gizmos, Engine Mode</li>
-      <li><strong>Build + site</strong> — PyInstaller multi-OS, GitHub Pages, READMEs i18n</li>
-    </ol>
-
-    <div class="callout">
-      API completa no repositório: <a href="https://github.com/heitorhanzelgontijo-svg/nexus-engine/blob/main/docs/API.md">docs/API.md</a>
-    </div>
-
-    <p style="margin-top:40px"><strong style="color:var(--text)">Made in Nexus</strong> — MIT License</p>
-  </main>
+  <p><a href="./#tutorial">Tutorial (página única)</a></p>
 </body>
 </html>

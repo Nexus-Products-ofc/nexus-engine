@@ -1,11 +1,9 @@
-# Nexus Website (GitHub Pages)
+# Nexus Website (single page)
 
-Site URL after enabling Pages:
+Everything is on **index.html**: landing, tutorial, API, build, architecture.
 
-https://heitorhanzelgontijo-svg.github.io/nexus-engine/
+URL: https://heitorhanzelgontijo-svg.github.io/nexus-engine/
 
-Tutorial: https://heitorhanzelgontijo-svg.github.io/nexus-engine/tutorial.html
+`tutorial.html` redirects to `/#tutorial`.
 
-Deploy: GitHub Actions workflow `.github/workflows/pages.yml`
-
-Enable once: Settings → Pages → Source: **GitHub Actions**
+Enable Pages: Settings → Pages → Source: **GitHub Actions**
