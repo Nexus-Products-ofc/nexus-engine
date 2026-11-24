@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="/nexus-engine/" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nexus Engine — Open Source Python Game Engine</title>
+  <meta name="description" content="Nexus Engine: Unity-inspired open-source Python game engine. ECS, Physics2D, Particles, Tilemap, UI. MIT license." />
+  <link rel="icon" href="assets/logo.svg" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-glow"></div>
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="./">
+        <img src="assets/logo.svg" alt="Nexus" width="36" height="36" />
+        <span>Nexus Engine</span>
+      </a>
+      <nav class="links">
+        <a href="tutorial.html">Tutorial</a>
+        <a href="#features">Features</a>
+        <a href="#download">Download</a>
+        <a href="https://github.com/heitorhanzelgontijo-svg/nexus-engine" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+      <div class="lang-wrap">
+        <label for="lang">Language</label>
+        <select id="lang" aria-label="Language"></select>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <img class="hero-logo" src="assets/logo.svg" alt="Nexus Crystal Logo" width="120" height="120" />
+      <h1 data-i18n="hero_title">Nexus Engine</h1>
+      <p class="tagline" data-i18n="hero_tagline">The open-source Python game engine built for indie creators</p>
+      <p class="sub" data-i18n="hero_sub">Unity-inspired architecture. ECS, Physics2D, Particles, Tilemap, UI, Prefabs — pure Python.</p>
+      <div class="cta">
+        <a class="btn primary" href="https://github.com/heitorhanzelgontijo-svg/nexus-engine/releases" data-i18n="cta_download">Download</a>
+        <a class="btn ghost" href="tutorial.html" data-i18n="cta_docs">Tutorial</a>
+        <a class="btn star" href="https://github.com/heitorhanzelgontijo-svg/nexus-engine" data-i18n="cta_star">Star on GitHub</a>
+      </div>
+      <div class="badges">
+        <span>Python 3.9+</span>
+        <span>MIT License</span>
+        <span>2D + 3D</span>
+        <span>GitHub Pages</span>
+      </div>
+    </section>
+
+    <section id="features" class="section">
+      <h2 data-i18n="feat_title">Everything you need to ship 2D games</h2>
+      <div class="grid">
+        <article><h3 data-i18n="feat_ecs">ECS Architecture</h3><p data-i18n="feat_ecs_d">Entities, Components, Systems — clean and scalable.</p></article>
+        <article><h3 data-i18n="feat_phys">Physics2D</h3><p data-i18n="feat_phys_d">Rigidbodies, colliders, raycasts, gravity.</p></article>
+        <article><h3 data-i18n="feat_part">Particles</h3><p data-i18n="feat_part_d">Fire, explosions, waterfalls.</p></article>
+        <article><h3 data-i18n="feat_tile">Tilemap</h3><p data-i18n="feat_tile_d">Grid worlds like Unity Tilemap.</p></article>
+        <article><h3 data-i18n="feat_ui">UI Canvas</h3><p data-i18n="feat_ui_d">Buttons, text, panels — game-ready HUD.</p></article>
+        <article><h3 data-i18n="feat_multi">Multi-backend</h3><p data-i18n="feat_multi_d">Pygame, Ursina, Panda3D, Taichi.</p></article>
+      </div>
+    </section>
+
+    <section id="examples" class="section alt">
+      <h2 data-i18n="ex_title">Start in minutes</h2>
+      <pre class="code"><code>from nexus_engine import Application, World, Transform, SpriteRenderer, Camera
+
+world = World("Game")
+cam = world.create_entity("Cam")
+cam.add_component(Transform(0, 0))
+cam.add_component(Camera())
+player = world.create_entity("Player")
+player.add_component(Transform(100, 100))
+player.add_component(SpriteRenderer(color=(100, 200, 255), width=32, height=32))
+Application(title="Nexus", backend="pygame").run(world)</code></pre>
+      <div class="cta" style="margin-top:20px">
+        <a class="btn primary" href="tutorial.html">Full tutorial</a>
+        <a class="btn ghost" href="https://github.com/heitorhanzelgontijo-svg/nexus-engine/blob/main/docs/API.md">API docs</a>
+      </div>
+    </section>
+
+    <section id="download" class="section">
+      <h2 data-i18n="nav_download">Download</h2>
+      <p class="sub">pip install pygame numpy · python main.py · python main.py --editor</p>
+      <div class="cta">
+        <a class="btn primary" href="https://github.com/heitorhanzelgontijo-svg/nexus-engine">Source on GitHub</a>
+        <a class="btn ghost" href="https://github.com/heitorhanzelgontijo-svg/nexus-engine/releases">Releases</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <img src="assets/logo.svg" alt="" width="28" height="28" />
+    <p data-i18n="footer">Nexus Engine — MIT License — Made in Nexus</p>
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>
