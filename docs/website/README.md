@@ -1,10 +1,11 @@
-# Nexus Website
+# Nexus Website (GitHub Pages)
 
-```bash
-cd docs/website
-python -m http.server 8080
-```
+Site URL after enabling Pages:
 
-- `index.html` — landing page (100 languages UI)
-- `tutorial.html` — deep tutorial + how we built Nexus + full API usage + multi build
-- Open http://localhost:8080/tutorial.html
+https://heitorhanzelgontijo-svg.github.io/nexus-engine/
+
+Tutorial: https://heitorhanzelgontijo-svg.github.io/nexus-engine/tutorial.html
+
+Deploy: GitHub Actions workflow `.github/workflows/pages.yml`
+
+Enable once: Settings → Pages → Source: **GitHub Actions**
