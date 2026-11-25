@@ -14,7 +14,7 @@
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue?style=for-the-badge" alt="MIT" /></a>
 </p>
 
-> Official site: https://heitorhanzelgontijo-svg.github.io/nexus-engine/  
+> Official site: [Nexus engine](https://nexus-products-ofc.github.io/nexus-engine/)  
 > Not affiliated with Unity Technologies.
 
 ---
