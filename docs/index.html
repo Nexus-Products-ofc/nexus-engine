@@ -4,21 +4,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Nexus Engine — Official Python Game Engine</title>
-  <meta name="description" content="Nexus Engine 1.0 TURBO — Unity-like editor, .nexusEng projects, 2D/3D examples. MIT." />
+  <meta name="description" content="Nexus Engine 1.0 TURBO — Unity-like editor, .nexusEng projects. Official downloads on GitHub Releases." />
   <link rel="icon" type="image/svg+xml" href="assets/logo.svg" />
   <meta name="theme-color" content="#7c3aed" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header class="nav"><div class="nav-inner">
-    <a class="brand" href="#top"><img src="assets/logo.svg" alt="Nexus" width="34" height="34" style="border-radius:10px" /><span>Nexus Engine</span></a>
+    <a class="brand" href="#top">
+      <img src="assets/logo.svg" alt="Nexus" width="34" height="34" style="border-radius:10px" />
+      <span>Nexus Engine</span>
+    </a>
     <nav class="links">
       <a href="#features">Features</a>
       <a href="#editor">Editor</a>
       <a href="#project">Projects</a>
       <a href="#examples">Examples</a>
-      <a href="#download">Download</a>
-      <a href="#api">API</a>
+      <a href="download.html">Download</a>
       <a href="#trust">Trust</a>
       <a href="https://github.com/heitorhanzelgontijo-svg/nexus-engine" target="_blank" rel="noopener">GitHub</a>
     </nav>
@@ -26,109 +28,85 @@
 
   <main id="top">
     <section class="hero">
-      <img src="assets/logo.svg" alt="Nexus logo" width="112" height="112" style="border-radius:28px;box-shadow:0 0 48px rgba(124,58,237,.55);margin-bottom:12px" />
+      <img src="assets/logo.svg" alt="Nexus Engine logo" width="112" height="112"
+           style="border-radius:28px;box-shadow:0 0 48px rgba(124,58,237,.55);margin-bottom:12px" />
       <div class="pills" style="margin-bottom:18px">
         <span>v1.0 TURBO</span><span>MIT</span><span>.nexusEng</span><span>Official</span>
       </div>
       <h1>Python game engine<br/>with a real editor.</h1>
-      <p class="tagline">Unity-inspired Engine Mode · ECS · 2D/3D · project files · examples</p>
-      <p class="sub">Open source. Download only from GitHub. No activation keys.</p>
+      <p class="tagline">Unity-inspired Engine Mode · ECS · 2D/3D · project files</p>
+      <p class="sub">Official builds are published on GitHub Releases only.</p>
       <div class="cta">
-        <a class="btn primary" href="https://github.com/heitorhanzelgontijo-svg/nexus-engine/archive/refs/heads/main.zip">Download ZIP</a>
-        <a class="btn ghost" href="https://github.com/heitorhanzelgontijo-svg/nexus-engine">View source</a>
+        <a class="btn primary" href="download.html">Download</a>
+        <a class="btn ghost" href="https://github.com/heitorhanzelgontijo-svg/nexus-engine">GitHub</a>
         <a class="btn star" href="https://github.com/heitorhanzelgontijo-svg/nexus-engine">Star</a>
       </div>
-      <p class="sub" style="margin-top:10px;font-size:.92rem">Official: <span class="mono">github.com/heitorhanzelgontijo-svg/nexus-engine</span></p>
     </section>
 
     <section id="features" class="section">
-      <h2>Everything in the engine</h2>
+      <h2>Features</h2>
       <div class="grid">
         <article class="card"><h3>Engine Mode</h3><p>Hierarchy, Scene, Inspector, Project, Console, Play.</p></article>
-        <article class="card"><h3>.nexusEng projects</h3><p>Save and open full scenes as project files.</p></article>
+        <article class="card"><h3>.nexusEng projects</h3><p>Save and open scenes as project files.</p></article>
         <article class="card"><h3>ECS</h3><p>Entities, components, systems.</p></article>
-        <article class="card"><h3>2D &amp; 3D</h3><p>Pygame · Ursina · Panda3D · Taichi.</p></article>
-        <article class="card"><h3>Physics &amp; input</h3><p>Rigidbody2D, colliders, input helpers.</p></article>
+        <article class="card"><h3>2D &amp; 3D</h3><p>Multiple backends for your games.</p></article>
         <article class="card"><h3>Audio &amp; VFX</h3><p>Music, SFX, particles, screen effects.</p></article>
-        <article class="card"><h3>Turbo mode</h3><p>quality · balanced · turbo · ultra</p></article>
-        <article class="card"><h3>MIT license</h3><p>Free for commercial games and education.</p></article>
+        <article class="card"><h3>MIT license</h3><p>Free for commercial use.</p></article>
       </div>
     </section>
 
     <section id="editor" class="section alt"><div class="inner">
       <h2>Engine Mode (editor)</h2>
-      <div class="grid">
-        <article class="card"><h3>Open</h3><pre class="code">python main.py --editor</pre></article>
-        <article class="card"><h3>Menus</h3><p>File · GameObject (Block/Item) · Assets (Import)</p></article>
-        <article class="card"><h3>Keys</h3><p>Space Play · N/B/I create · Del delete</p></article>
-      </div>
+      <p class="lead">Visual editor inspired by Unity — File menu for <span class="mono">.nexusEng</span>, create Block/Item, import images.</p>
     </div></section>
 
     <section id="project" class="section">
-      <h2>Project files (.nexusEng)</h2>
-      <div class="panel">
-        <pre class="code">python main.py --project examples_projects/exemplo.nexusEng</pre>
-        <p style="margin-top:12px;color:var(--muted)"><a href="https://github.com/heitorhanzelgontijo-svg/nexus-engine/blob/main/docs/PROJECT_FORMAT.md">PROJECT_FORMAT.md</a></p>
-      </div>
+      <h2>Project files</h2>
+      <p class="lead"><span class="mono">.nexusEng</span> — JSON projects with scenes and components.</p>
     </section>
 
     <section id="examples" class="section alt"><div class="inner">
       <h2>Examples</h2>
       <div class="grid">
-        <article class="card"><h3>2D Platformer</h3><pre class="code">python main.py --platformer</pre></article>
-        <article class="card"><h3>3D FPS</h3><pre class="code">python main.py --fps</pre></article>
-        <article class="card"><h3>3D TPS</h3><pre class="code">python main.py --tps</pre></article>
+        <article class="card"><h3>2D Platformer</h3><p>Side-view movement and jump.</p></article>
+        <article class="card"><h3>3D First Person</h3><p>FPS-style camera.</p></article>
+        <article class="card"><h3>3D Third Person</h3><p>Orbit camera behind the player.</p></article>
       </div>
     </div></section>
 
-    <section id="download" class="section">
+    <section class="section">
       <h2>Download</h2>
-      <div class="grid">
-        <article class="card"><h3>Source ZIP</h3><a class="btn primary" href="https://github.com/heitorhanzelgontijo-svg/nexus-engine/archive/refs/heads/main.zip">Download ZIP</a></article>
-        <article class="card"><h3>Releases</h3><a class="btn ok" href="https://github.com/heitorhanzelgontijo-svg/nexus-engine/releases">Open Releases</a></article>
-        <article class="card"><h3>EXE (Windows)</h3><pre class="code">python build_exe.py --zip</pre></article>
+      <p class="lead">Choose your platform. Files come from GitHub Releases.</p>
+      <div class="cta">
+        <a class="btn primary" href="download.html">Go to Download</a>
+        <a class="btn ok" href="https://github.com/heitorhanzelgontijo-svg/nexus-engine/releases/latest">Latest Release</a>
       </div>
-      <div class="okbox"><strong>Install:</strong> <span class="mono">pip install pygame numpy</span> · optional <span class="mono">ursina</span></div>
     </section>
 
-    <section id="api" class="section alt"><div class="inner">
-      <h2>Minimal API</h2>
-      <pre class="code">from nexus_engine import Application, World, Transform, SpriteRenderer, Turbo
-Turbo.set("turbo")
-world = World("Game")
-player = world.create_entity("Player")
-player.add_component(Transform(100, 100))
-player.add_component(SpriteRenderer(color=(100, 200, 255), width=32, height=32))
-Application(title="My Game", backend="pygame", turbo="turbo").run(world)</pre>
-    </div></section>
-
-    <section id="trust" class="section">
+    <section id="trust" class="section alt"><div class="inner">
       <h2>Trust &amp; safety</h2>
       <div class="panel">
         <ul>
-          <li>Public MIT source on GitHub</li>
-          <li>No activation keys or remote unlock</li>
-          <li>SmartScreen may warn on unsigned builds</li>
+          <li>Official downloads only via <strong>GitHub Releases</strong></li>
+          <li>Repository: <span class="mono">heitorhanzelgontijo-svg/nexus-engine</span></li>
+          <li>No activation keys or third-party stores</li>
         </ul>
-        <p><a href="https://github.com/heitorhanzelgontijo-svg/nexus-engine/blob/main/SECURITY.md">SECURITY.md</a> · <a href="https://github.com/heitorhanzelgontijo-svg/nexus-engine/blob/main/TRUST.md">TRUST.md</a></p>
       </div>
-      <div class="warnbox">Only download from <span class="mono">github.com/heitorhanzelgontijo-svg/nexus-engine</span></div>
-    </section>
+    </div></section>
 
-    <section class="section alt"><div class="inner">
+    <section class="section">
       <h2>Support</h2>
       <div class="grid">
         <article class="card"><h3>Bug</h3><a class="btn danger" href="https://github.com/heitorhanzelgontijo-svg/nexus-engine/issues/new?labels=bug&title=%5BBUG%5D%20">Report bug</a></article>
         <article class="card"><h3>Idea</h3><a class="btn ok" href="https://github.com/heitorhanzelgontijo-svg/nexus-engine/issues/new?labels=enhancement&title=%5BENHANCEMENT%5D%20">Suggest improvement</a></article>
         <article class="card"><h3>Forum</h3><a class="btn ghost" href="https://github.com/heitorhanzelgontijo-svg/nexus-engine/discussions">Discussions</a></article>
       </div>
-    </div></section>
+    </section>
   </main>
 
   <footer>
     <img src="assets/logo.svg" width="28" height="28" style="border-radius:8px;vertical-align:middle;margin-right:6px" alt="" />
     <strong>Nexus Engine</strong> — official site · MIT · Made in Nexus
-    <p class="sub">Not affiliated with Unity Technologies.</p>
   </footer>
 </body>
 </html>

@@ -1,13 +1,31 @@
 # Nexus Engine 1.0 TURBO
 
-**Official open-source Python game engine** — Unity-inspired editor, ECS, 2D/3D backends, `.nexusEng` projects.
+<p align="center">
+  <img src="docs/assets/logo.svg" alt="Nexus Engine" width="120" height="120" />
+</p>
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Python 3.9+](https://img.shields.io/badge/Python-3.9%2B-yellow.svg)](https://www.python.org/)
+<p align="center">
+  <strong>Official open-source Python game engine</strong><br/>
+  Unity-inspired editor · ECS · 2D/3D · <code>.nexusEng</code> projects
+</p>
 
-> Official repo: https://github.com/heitorhanzelgontijo-svg/nexus-engine  
-> Site: https://heitorhanzelgontijo-svg.github.io/nexus-engine/  
+<p align="center">
+  <a href="https://github.com/heitorhanzelgontijo-svg/nexus-engine/releases/latest"><img src="https://img.shields.io/badge/Download-Releases-7c3aed?style=for-the-badge" alt="Download" /></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue?style=for-the-badge" alt="MIT" /></a>
+</p>
+
+> Official site: https://heitorhanzelgontijo-svg.github.io/nexus-engine/  
 > Not affiliated with Unity Technologies.
+
+---
+
+## Download
+
+**Get official builds (Windows · Linux · macOS):**
+
+### ➡ [Download from Releases](https://github.com/heitorhanzelgontijo-svg/nexus-engine/releases/latest)
+
+Only use packages published on the **GitHub Releases** page of this repository.
 
 ---
 
@@ -15,41 +33,19 @@
 
 - **Engine Mode** — visual editor (Hierarchy, Scene, Inspector, Console, Project)
 - **ECS** — entities, components, systems
-- **2D & 3D** — Pygame, Ursina / Panda3D / Taichi
-- **`.nexusEng` projects** — save/load scenes
-- **Turbo profiles** — quality / balanced / turbo / ultra
-- **Media & VFX** — music, SFX, images, particles, screen effects
-- **MIT license** — free for commercial games
+- **2D & 3D** backends
+- **`.nexusEng`** project files
+- **Turbo** performance profiles
+- **Audio, VFX, particles**
+- **MIT** license
 
 ---
 
-## Quick start
-
-```bash
-git clone https://github.com/heitorhanzelgontijo-svg/nexus-engine.git
-cd nexus-engine
-pip install pygame numpy
-pip install ursina   # optional 3D
-```
-
-| Command | What it does |
-|---------|----------------|
-| `python main.py` | Showcase |
-| `python main.py --editor` | **Unity-like editor** |
-| `python main.py --project examples_projects/exemplo.nexusEng` | Open project |
-| `python main.py --platformer` | 2D platformer |
-| `python main.py --fps` | 3D first-person |
-| `python main.py --tps` | 3D third-person |
-| `python main.py --3d` | Hello 3D |
-| `python build_exe.py --zip` | Windows EXE (on Windows) |
-
----
-
-## Engine Mode (editor)
+## Engine Mode
 
 ```
 [ File | GameObject | Assets | Help ]
-[ ▶ Play / ■ Stop ]
+[ ▶ Play ]
 [ Hierarchy | Scene | Inspector ]
 [ Project | Console ]
 ```
@@ -57,86 +53,41 @@ pip install ursina   # optional 3D
 - **File** — New / Open / Save `.nexusEng`
 - **GameObject** — Empty, Sprite, Block, Item
 - **Assets** — Import Image
-- **Space** Play · **N** Empty · **B** Block · **I** Item · **Del** Delete
-
-Code: `nexus_engine/editor/editor_window.py`
+- Shortcuts: Space Play · N / B / I create · Del delete
 
 ---
 
 ## Project files (`.nexusEng`)
 
-Example: `examples_projects/exemplo.nexusEng`
-
-```bash
-python main.py --project examples_projects/exemplo.nexusEng
-```
-
-Components v1: `Transform`, `SpriteRenderer`, `Camera`, `Rigidbody2D`, `BoxCollider2D`  
+Scenes and entities saved as JSON projects.  
+Example: `examples_projects/exemplo.nexusEng`  
 Docs: [docs/PROJECT_FORMAT.md](docs/PROJECT_FORMAT.md)
 
 ---
 
-## Minimal API
+## Examples
 
-```python
-from nexus_engine import (
-    Application, World, Transform, SpriteRenderer, Camera, Turbo, Debug
-)
-
-Turbo.set("turbo")
-world = World("Game")
-player = world.create_entity("Player")
-player.add_component(Transform(100, 100))
-player.add_component(SpriteRenderer(color=(100, 200, 255), width=32, height=32))
-Application(title="My Game", backend="pygame", turbo="turbo").run(world)
-```
-
-### Packages
-
-| Package | Role |
-|---------|------|
-| `core/` | Application, Engine, Turbo |
-| `ecs/` | World, Entity, components |
-| `editor/` | Engine Mode UI |
-| `project/` | `.nexusEng` load/save |
-| `physics/` `rendering/` `audio/` `vfx/` | Systems |
-| `examples/` | Platformer, FPS, TPS |
-
----
-
-## Build EXE (Windows)
-
-```bat
-python build_exe.py --zip
-```
-
-Output: `dist\NexusEngine.exe`  
-SmartScreen may warn until code-signed.
+| Example | Description |
+|---------|-------------|
+| 2D Platformer | Side-scroller style demo |
+| 3D First Person | FPS-style camera |
+| 3D Third Person | Orbit camera |
+| Engine Mode | Visual editor app |
 
 ---
 
 ## Trust
 
-- Public MIT source
-- Official URL only: `github.com/heitorhanzelgontijo-svg/nexus-engine`
+- Official downloads: **GitHub Releases only**
+- Repo: `github.com/heitorhanzelgontijo-svg/nexus-engine`
 - [SECURITY.md](SECURITY.md) · [TRUST.md](TRUST.md)
-
----
-
-## Compare
-
-| | Nexus | Unity | Godot |
-|--|-------|-------|-------|
-| Language | Python | C# | GDScript / C# |
-| License | MIT | Proprietary* | MIT |
-| Best for | Python indies, education | Mid/AAA | General indies |
 
 ---
 
 ## Support
 
-- [Report bug](https://github.com/heitorhanzelgontijo-svg/nexus-engine/issues/new?labels=bug)
-- [Suggest idea](https://github.com/heitorhanzelgontijo-svg/nexus-engine/issues/new?labels=enhancement)
+- [Report a bug](https://github.com/heitorhanzelgontijo-svg/nexus-engine/issues/new?labels=bug)
+- [Suggest an idea](https://github.com/heitorhanzelgontijo-svg/nexus-engine/issues/new?labels=enhancement)
 - [Discussions](https://github.com/heitorhanzelgontijo-svg/nexus-engine/discussions)
 
 ## License
