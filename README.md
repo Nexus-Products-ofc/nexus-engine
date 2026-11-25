@@ -1,53 +1,25 @@
-<p align="center">
-  <img src="docs/website/assets/logo.svg" width="120" alt="Nexus Engine" />
-</p>
+# Nexus Engine 1.0 TURBO
 
-<h1 align="center">Nexus Engine</h1>
+**Official open-source Python game engine** — Unity-inspired editor, ECS, 2D/3D backends, `.nexusEng` projects.
 
-<p align="center">
-  <b>Open-source Python game engine</b> — Unity-inspired architecture · download in https://heitorhanzelgontijo-svg.github.io/nexus-engine/
-</p>
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Python 3.9+](https://img.shields.io/badge/Python-3.9%2B-yellow.svg)](https://www.python.org/)
 
-<p align="center">
-  <a href="README.md">English</a> ·
-  <a href="docs/i18n/README.pt-BR.md">Português</a> ·
-  <a href="docs/i18n/README.es.md">Español</a> ·
-  <a href="docs/i18n/README.fr.md">Français</a> ·
-  <a href="docs/i18n/README.de.md">Deutsch</a> ·
-  <a href="docs/i18n/README.ja.md">日本語</a> ·
-  <a href="docs/i18n/README.zh-CN.md">简体中文</a> ·
-  <a href="docs/i18n/README.ru.md">Русский</a> ·
-  <a href="docs/i18n/README.ar.md">العربية</a> ·
-  <a href="docs/i18n/README.hi.md">हिन्दी</a>
-</p>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/Python-3.9+-blue" />
-  <img src="https://img.shields.io/badge/License-MIT-green" />
-  <img src="https://img.shields.io/badge/2D%20%7C%203D-purple" />
-  <img src="https://img.shields.io/badge/version-0.5.0-orange" />
-</p>
+> Official repo: https://github.com/heitorhanzelgontijo-svg/nexus-engine  
+> Site: https://heitorhanzelgontijo-svg.github.io/nexus-engine/  
+> Not affiliated with Unity Technologies.
 
 ---
 
-## Why Nexus can compete (for the right projects)
+## What is Nexus?
 
-Nexus is not a pixel-perfect clone of Unity’s C++ core. It competes where Unity is heavy and Python is strong: 2D indies, education, jams, and rapid prototypes — with an **MIT** license.
-
-## Nexus vs Unity vs Godot
-
-| | **Nexus** | **Unity** | **Godot** |
-|--|-----------|-----------|-----------|
-| Main language | **Python** | C# | GDScript / C# |
-| License | **MIT** | Proprietary* | MIT |
-| Visual editor | Engine Mode | Full editor | Full editor |
-| 2D | Strong (Pygame) | Excellent | Excellent |
-| 3D | Ursina / Panda3D / Taichi | Excellent | Good |
-| Best for | Python indies, jams, education | Mid/AAA, mobile polish | General indies |
-
-**Advantages:** pure Python, MIT, Unity-like APIs, multi-backend, Engine Mode, Debug, SceneManager, Resources.
-
-**Trade-offs:** younger editor, 3D via backends, Python performance limits, smaller asset store.
+- **Engine Mode** — visual editor (Hierarchy, Scene, Inspector, Console, Project)
+- **ECS** — entities, components, systems
+- **2D & 3D** — Pygame, Ursina / Panda3D / Taichi
+- **`.nexusEng` projects** — save/load scenes
+- **Turbo profiles** — quality / balanced / turbo / ultra
+- **Media & VFX** — music, SFX, images, particles, screen effects
+- **MIT license** — free for commercial games
 
 ---
 
@@ -57,62 +29,116 @@ Nexus is not a pixel-perfect clone of Unity’s C++ core. It competes where Unit
 git clone https://github.com/heitorhanzelgontijo-svg/nexus-engine.git
 cd nexus-engine
 pip install pygame numpy
-
-python main.py              # 2D showcase + Made in Nexus splash
-python main.py --editor     # Unity-like Engine Mode
-python main.py --3d         # 3D sample (pip install ursina)
-python build.py             # export game
+pip install ursina   # optional 3D
 ```
 
-### Controls
-Showcase: A/D move · Space jump · Shift dash · Click particles · F5/F9 save/load  
-Engine Mode: Space Play/Pause · **N** new object · Del delete · F1 FPS · Esc close
+| Command | What it does |
+|---------|----------------|
+| `python main.py` | Showcase |
+| `python main.py --editor` | **Unity-like editor** |
+| `python main.py --project examples_projects/exemplo.nexusEng` | Open project |
+| `python main.py --platformer` | 2D platformer |
+| `python main.py --fps` | 3D first-person |
+| `python main.py --tps` | 3D third-person |
+| `python main.py --3d` | Hello 3D |
+| `python build_exe.py --zip` | Windows EXE (on Windows) |
 
 ---
 
-## Architecture (Unity mapping)
+## Engine Mode (editor)
 
-| Unity | Nexus |
-|-------|--------|
-| GameObject | `Entity` |
-| MonoBehaviour | `Component` |
-| Scene | `World` + `SceneManager` |
-| Debug.Log | `Debug.log` |
-| Gizmos | `Gizmos.draw_line` |
-| Resources.Load | `Resources.load` |
-| Prefab | `Prefab` + `ObjectPool` |
-| Coroutine | `wait_for_seconds` |
+```
+[ File | GameObject | Assets | Help ]
+[ ▶ Play / ■ Stop ]
+[ Hierarchy | Scene | Inspector ]
+[ Project | Console ]
+```
+
+- **File** — New / Open / Save `.nexusEng`
+- **GameObject** — Empty, Sprite, Block, Item
+- **Assets** — Import Image
+- **Space** Play · **N** Empty · **B** Block · **I** Item · **Del** Delete
+
+Code: `nexus_engine/editor/editor_window.py`
+
+---
+
+## Project files (`.nexusEng`)
+
+Example: `examples_projects/exemplo.nexusEng`
+
+```bash
+python main.py --project examples_projects/exemplo.nexusEng
+```
+
+Components v1: `Transform`, `SpriteRenderer`, `Camera`, `Rigidbody2D`, `BoxCollider2D`  
+Docs: [docs/PROJECT_FORMAT.md](docs/PROJECT_FORMAT.md)
+
+---
+
+## Minimal API
 
 ```python
-from nexus_engine import Application, World, Transform, SpriteRenderer, Camera, Debug, SceneManager
+from nexus_engine import (
+    Application, World, Transform, SpriteRenderer, Camera, Turbo, Debug
+)
 
-world = SceneManager.create_scene("Level1")
+Turbo.set("turbo")
+world = World("Game")
 player = world.create_entity("Player")
 player.add_component(Transform(100, 100))
 player.add_component(SpriteRenderer(color=(100, 200, 255), width=32, height=32))
-Debug.log("Level1 ready")
-Application(title="MyGame", backend="pygame").run(world)
+Application(title="My Game", backend="pygame", turbo="turbo").run(world)
 ```
 
-### 3D
+### Packages
 
-```bash
-pip install ursina
-python main.py --3d
-```
+| Package | Role |
+|---------|------|
+| `core/` | Application, Engine, Turbo |
+| `ecs/` | World, Entity, components |
+| `editor/` | Engine Mode UI |
+| `project/` | `.nexusEng` load/save |
+| `physics/` `rendering/` `audio/` `vfx/` | Systems |
+| `examples/` | Platformer, FPS, TPS |
 
 ---
 
-## Feature set (v0.5)
+## Build EXE (Windows)
 
-ECS · Physics2D · Particles · Tilemap · UI · Audio · Prefabs · ObjectPool · Coroutines  
-Scene JSON · Gizmos · Debug · **SceneManager** · **ProjectSettings** · **Resources**  
-MeshRenderer / Camera3D · Engine Mode · Multi-platform build
+```bat
+python build_exe.py --zip
+```
+
+Output: `dist\NexusEngine.exe`  
+SmartScreen may warn until code-signed.
 
 ---
+
+## Trust
+
+- Public MIT source
+- Official URL only: `github.com/heitorhanzelgontijo-svg/nexus-engine`
+- [SECURITY.md](SECURITY.md) · [TRUST.md](TRUST.md)
+
+---
+
+## Compare
+
+| | Nexus | Unity | Godot |
+|--|-------|-------|-------|
+| Language | Python | C# | GDScript / C# |
+| License | MIT | Proprietary* | MIT |
+| Best for | Python indies, education | Mid/AAA | General indies |
+
+---
+
+## Support
+
+- [Report bug](https://github.com/heitorhanzelgontijo-svg/nexus-engine/issues/new?labels=bug)
+- [Suggest idea](https://github.com/heitorhanzelgontijo-svg/nexus-engine/issues/new?labels=enhancement)
+- [Discussions](https://github.com/heitorhanzelgontijo-svg/nexus-engine/discussions)
 
 ## License
 
-[MIT](LICENSE) — commercial games allowed.
-
-**Made in Nexus**
+MIT — **Made in Nexus.**
