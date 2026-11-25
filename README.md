@@ -41,20 +41,6 @@ Only use packages published on the **GitHub Releases** page of this repository.
 
 ---
 
-## Engine Mode
-
-```
-[ File | GameObject | Assets | Help ]
-[ ▶ Play ]
-[ Hierarchy | Scene | Inspector ]
-[ Project | Console ]
-```
-
-- **File** — New / Open / Save `.nexusEng`
-- **GameObject** — Empty, Sprite, Block, Item
-- **Assets** — Import Image
-- Shortcuts: Space Play · N / B / I create · Del delete
-
 ---
 
 ## Project files (`.nexusEng`)
