@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nexus Engine 1.0 TURBO — Download & Learn</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .warn{border-left:3px solid #f6c343;background:rgba(246,195,67,.1);padding:12px 16px;border-radius:0 12px 12px 0;margin:16px auto;max-width:920px;color:var(--muted);text-align:left}
+    .path{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;max-width:920px;margin:0 auto}
+    .path article{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;text-align:left}
+    .path h3{margin:0 0 8px;color:#ecd9ff}
+    pre{background:#0a0412;border:1px solid var(--line);border-radius:12px;padding:14px;overflow:auto;color:#d7c4ff;font-size:.88rem;text-align:left}
+  </style>
+</head>
+<body>
+  <div class="bg-glow"></div>
+  <header class="nav"><div class="nav-inner">
+    <a class="brand" href="#top"><span>Nexus <span class="badge-turbo">1.0 TURBO</span></span></a>
+    <nav class="links">
+      <a href="#download">Download</a>
+      <a href="#defender">Windows Defender</a>
+      <a href="#learn">Learn</a>
+      <a href="#report">Report</a>
+      <a href="https://github.com/heitorhanzelgontijo-svg/nexus-engine" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+  </div></header>
+
+  <main id="top">
+    <section class="hero">
+      <h1>Nexus Engine <span class="badge-turbo">1.0 TURBO</span></h1>
+      <p class="tagline">Unity-like editor · optional code path · open source MIT</p>
+      <p class="sub">Download the Windows ZIP (safe .bat launchers). MSI is optional and built on Windows.</p>
+      <div class="cta">
+        <a class="btn primary" href="https://github.com/heitorhanzelgontijo-svg/nexus-engine/archive/refs/heads/main.zip">Download ZIP (source)</a>
+        <a class="btn ghost" href="https://github.com/heitorhanzelgontijo-svg/nexus-engine/releases">GitHub Releases</a>
+        <a class="btn star" href="https://github.com/heitorhanzelgontijo-svg/nexus-engine">Star</a>
+      </div>
+    </section>
+
+    <section id="download" class="section">
+      <h2>Download for Windows</h2>
+      <div class="dl-grid">
+        <div class="dl-card">
+          <h3>1. Recommended: Source ZIP</h3>
+          <p>Official GitHub archive. Extract → Install Dependencies → Nexus Engine.bat</p>
+          <a class="btn primary" href="https://github.com/heitorhanzelgontijo-svg/nexus-engine/archive/refs/heads/main.zip">Download ZIP</a>
+        </div>
+        <div class="dl-card">
+          <h3>2. Releases (ZIP / MSI)</h3>
+          <p>When a Release is published, get NexusEngine-1.0-Windows.zip or .msi here.</p>
+          <a class="btn ok" href="https://github.com/heitorhanzelgontijo-svg/nexus-engine/releases/latest">Open Releases</a>
+        </div>
+        <div class="dl-card">
+          <h3>3. Build MSI yourself</h3>
+          <p>On a Windows PC after extract:</p>
+          <pre style="margin:0">python build_msi.py</pre>
+        </div>
+      </div>
+      <div class="warn">
+        <strong>Why no direct MSI file on the homepage?</strong>
+        A real Microsoft Installer (.msi) must be built on Windows (WiX / msilib) and ideally code-signed.
+        Without a paid certificate, SmartScreen still warns. We ship <strong>Python + .bat launchers</strong> (transparent, open source) and optional MSI via Releases.
+      </div>
+    </section>
+
+    <section id="defender" class="section alt">
+      <h2>Windows Defender / SmartScreen</h2>
+      <div class="doc-block" style="max-width:920px;margin:0 auto">
+        <p style="color:var(--muted);text-align:left">Windows protects your PC from <em>unknown publishers</em>. Open-source tools without a paid code-signing certificate often trigger this. It does <strong>not</strong> mean the project is malware.</p>
+        <ol style="color:var(--muted);text-align:left">
+          <li>Prefer running <code>Nexus Engine.bat</code> (Python scripts), not random .exe from the internet.</li>
+          <li>If SmartScreen appears: <strong>More info</strong> → <strong>Run anyway</strong>.</li>
+          <li>Or right-click the ZIP/file → <strong>Properties</strong> → check <strong>Unblock</strong> → Apply.</li>
+          <li>Only download from the official GitHub: <code>heitorhanzelgontijo-svg/nexus-engine</code>.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="learn" class="section">
+      <h2>Learn — two paths</h2>
+      <div class="path">
+        <article>
+          <h3>A) Unity-like editor (visual)</h3>
+          <p style="color:var(--muted)">Double-click <code>Nexus Engine.bat</code> → Hierarchy, Scene, Inspector, Console, Play.</p>
+          <ul style="color:var(--muted)">
+            <li><b>N</b> — new object</li>
+            <li><b>Del</b> — delete</li>
+            <li><b>Space</b> — play/pause</li>
+            <li><b>F1</b> — FPS overlay</li>
+          </ul>
+        </article>
+        <article>
+          <h3>B) Code path (more optimized)</h3>
+          <p style="color:var(--muted)">Write Python for full control and performance tuning.</p>
+          <pre>from nexus_engine import (
+  Application, World, Transform,
+  SpriteRenderer, Camera, Turbo, Debug
+)
+Turbo.set("turbo")  # or ultra
+world = World("Game")
+# add entities + components...
+Application(
+  title="My Game",
+  backend="pygame",
+  turbo="turbo",
+).run(world)</pre>
+        </article>
+      </div>
+      <div class="doc-block" style="max-width:920px;margin:24px auto 0">
+        <h3 style="color:#e8d5ff;text-align:left">Media &amp; VFX</h3>
+        <pre>from nexus_engine import Music, Audio, Image, MeshAsset, VFX
+Music.play("assets/music/theme.ogg", loop=True)
+Audio.play_sfx("jump.wav")
+Image.load("hero.png")
+MeshAsset.cube()
+VFX.explosion(world, x, y)</pre>
+        <p style="color:var(--muted);text-align:left">Full API: <a href="https://github.com/heitorhanzelgontijo-svg/nexus-engine/blob/main/docs/API.md">docs/API.md</a></p>
+      </div>
+    </section>
+
+    <section id="report" class="section alt">
+      <h2>Report bugs, ideas, games</h2>
+      <div class="dl-grid">
+        <div class="dl-card">
+          <h3>Bug</h3>
+          <a class="btn danger" href="https://github.com/heitorhanzelgontijo-svg/nexus-engine/issues/new?labels=bug&title=%5BBUG%5D%20" target="_blank" rel="noopener">Report a bug</a>
+        </div>
+        <div class="dl-card">
+          <h3>Enhancement</h3>
+          <a class="btn ok" href="https://github.com/heitorhanzelgontijo-svg/nexus-engine/issues/new?labels=enhancement&title=%5BENHANCEMENT%5D%20" target="_blank" rel="noopener">Suggest improvement</a>
+        </div>
+        <div class="dl-card">
+          <h3>Forum</h3>
+          <a class="btn ghost" href="https://github.com/heitorhanzelgontijo-svg/nexus-engine/discussions" target="_blank" rel="noopener">Discussions</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer><p>Nexus Engine 1.0 TURBO — MIT — Made in Nexus — Teach everyone</p></footer>
+</body>
+</html>
