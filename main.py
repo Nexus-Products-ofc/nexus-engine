@@ -1,11 +1,12 @@
 """
 Nexus Engine — entry point.
-  python main.py              → showcase
-  python main.py --editor     → Unity-like Engine Mode
-  python main.py --platformer → 2D platformer
-  python main.py --fps        → 3D first person
-  python main.py --tps        → 3D third person
-  python main.py --3d         → hello 3D
+  python main.py
+  python main.py --editor
+  python main.py --project file.nexusEng
+  python main.py --platformer
+  python main.py --fps
+  python main.py --tps
+  python main.py --3d
 """
 
 import sys
@@ -17,17 +18,12 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 
-def check_deps(need_3d=False):
+def check_deps():
     missing = []
     try:
         import pygame  # noqa: F401
     except ImportError:
         missing.append("pygame")
-    if need_3d:
-        try:
-            import ursina  # noqa: F401
-        except ImportError:
-            pass  # examples have pygame fallback
     return missing
 
 
@@ -38,23 +34,34 @@ def main():
     platformer = "--platformer" in args
     fps = "--fps" in args
     tps = "--tps" in args
+    project = None
+    if "--project" in args:
+        i = args.index("--project")
+        if i + 1 < len(args):
+            project = args[i + 1]
 
-    missing = check_deps(need_3d=use_3d or fps or tps)
+    missing = check_deps()
     if missing:
-        print("=" * 50)
-        print("  MISSING DEPENDENCIES")
-        print("=" * 50)
-        print(f"  pip install {' '.join(missing)}")
-        print("=" * 50)
-        try:
-            input("\nPress ENTER to exit...")
-        except Exception:
-            pass
+        print("pip install " + " ".join(missing))
         sys.exit(1)
+
+    if project:
+        from nexus_engine.editor import EngineMode
+        from nexus_engine.project.project_file import load_project, scene_dict_to_world
+        print(f"[Nexus] Opening project: {project}")
+        ed = EngineMode()
+        def _load_world():
+            proj = load_project(project)
+            ed.project = proj
+            ed.project_path = project
+            scene = proj.scenes.get(proj.main_scene) or {"entities": []}
+            return scene_dict_to_world(scene, proj.main_scene)
+        ed._create_demo_world = _load_world
+        ed.run()
+        return
 
     if editor:
         from nexus_engine.editor import EngineMode
-        print("[Nexus] Opening Engine Mode...")
         EngineMode().run()
         return
 
@@ -86,15 +93,7 @@ if __name__ == "__main__":
     try:
         main()
     except KeyboardInterrupt:
-        print("\n[NexusEngine] Closed by user.")
+        print("\n[NexusEngine] Closed.")
     except Exception:
-        print("\n" + "=" * 50)
-        print("  ERROR OPENING NEXUS ENGINE")
-        print("=" * 50)
         traceback.print_exc()
-        print("=" * 50)
-        try:
-            input("\nPress ENTER to exit...")
-        except Exception:
-            pass
         sys.exit(1)

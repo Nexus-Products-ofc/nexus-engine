@@ -1,0 +1,61 @@
+{
+  "format": "nexusEng",
+  "version": 1,
+  "engine": "1.0.0",
+  "name": "Exemplo Plataforma",
+  "main_scene": "main",
+  "settings": {
+    "width": 960,
+    "height": 540,
+    "turbo": "turbo",
+    "backend": "pygame"
+  },
+  "assets": [],
+  "scenes": {
+    "main": {
+      "entities": [
+        {
+          "name": "Main Camera",
+          "components": [
+            { "type": "Transform", "x": 480, "y": 270 },
+            { "type": "Camera", "background_color": [25, 30, 45, 255] }
+          ]
+        },
+        {
+          "name": "Ground",
+          "components": [
+            { "type": "Transform", "x": 480, "y": 520 },
+            { "type": "SpriteRenderer", "width": 960, "height": 40, "color": [60, 100, 60, 255] },
+            { "type": "BoxCollider2D", "w": 960, "h": 40 },
+            { "type": "Rigidbody2D", "mass": 1.0, "body_type": "static" }
+          ]
+        },
+        {
+          "name": "Platform",
+          "components": [
+            { "type": "Transform", "x": 300, "y": 400 },
+            { "type": "SpriteRenderer", "width": 160, "height": 20, "color": [90, 90, 120, 255] },
+            { "type": "BoxCollider2D", "w": 160, "h": 20 },
+            { "type": "Rigidbody2D", "mass": 1.0, "body_type": "static" }
+          ]
+        },
+        {
+          "name": "Player",
+          "components": [
+            { "type": "Transform", "x": 120, "y": 450 },
+            { "type": "SpriteRenderer", "width": 28, "height": 40, "color": [100, 180, 255, 255] },
+            { "type": "BoxCollider2D", "w": 28, "h": 40 },
+            { "type": "Rigidbody2D", "mass": 1.0, "body_type": "dynamic" }
+          ]
+        },
+        {
+          "name": "Coin",
+          "components": [
+            { "type": "Transform", "x": 300, "y": 360 },
+            { "type": "SpriteRenderer", "width": 18, "height": 18, "color": [255, 210, 40, 255] }
+          ]
+        }
+      ]
+    }
+  }
+}
