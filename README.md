@@ -5,7 +5,7 @@
 <h1 align="center">Nexus Engine</h1>
 
 <p align="center">
-  <b>Open-source Python game engine</b> — Unity-inspired architecture · Made in Nexus
+  <b>Open-source Python game engine</b> — Unity-inspired architecture · download in https://heitorhanzelgontijo-svg.github.io/nexus-engine/
 </p>
 
 <p align="center">
